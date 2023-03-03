@@ -1,0 +1,123 @@
+body {
+  font-family: Nunito;
+}
+
+#cards {
+  display: flex;
+  flex-wrap: wrap;
+  width: 85%;
+  /* 新增：寬度和標頭一致 */
+  margin: 0 auto;
+  /* 新增：置中 */
+}
+
+.card {
+  /* 卡片在容器中排版 */
+  flex: 7% 1 1;
+  /* flex包含： flex-basis 代表大小(以任何單位表示) ； flex-grow 代表剩餘空間是否填滿(權重) ； flex-shrink 代表空間不足時是否收縮大小(權重) */
+  height: 8vw;
+  /* vw代表網頁視窗大小 8vw等於8%視窗大小 */
+  border: 2px solid #e0e0e0;
+  /* 設定box size */
+  box-sizing: border-box;
+  margin: 2px;
+  /* 卡片內部排版 */
+  /* 再做一次flex排內部元素 */
+  display: flex;
+  /* 由原始的row-橫向排版 改為 column-縱向排版 */
+  flex-direction: column;
+  /* 對齊方式-space-around-左右空間一致 */
+  justify-content: space-around;
+}
+
+.card img {
+  max-width: 30%;
+  align-self: center;
+}
+
+.card p {
+  margin: 3px;
+  font-size: 10px;
+
+}
+
+.card p:last-child {
+  transform: rotate(180deg);
+}
+
+.back {
+  background: url('https://assets-lighthouse.alphacamp.co/uploads/image/file/9222/ExportedContentImage_00.png');
+  background-size: cover;
+}
+
+.paired {
+  background-color: #dae0e3;
+}
+
+#header {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 85%;
+}
+
+#header .title {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#header .title img {
+  max-width: 3em;
+  max-height: 3em;
+  margin-top: 0.6em;
+}
+
+#header .title h2 {
+  padding-left: 0.5em;
+}
+
+#header .score {
+  margin: 0;
+  color: #6c90ac;
+}
+
+#header .tried {
+  margin-top: 0;
+}
+
+.wrong {
+  animation-name: wrongAnimation;
+  animation-duration: 0.2s;
+  animation-iteration-count: 5;
+}
+
+@keyframes wrongAnimation {
+  to {
+    border: 2px solid #ffd54f;
+  }
+}
+
+/** Game finished **/
+.completed {
+  position: absolute;
+  z-index: 999;
+  top: 33vh;
+  background-color: RGBA(232, 246, 254, 0.8);
+  width: 100vw;
+  padding: 50px 0;
+}
+
+.completed>p {
+  font-size: 1.5em;
+  color: black;
+  text-align: center;
+  margin: 0;
+}
+
+.completed>p:first-child {
+  font-size: 3em;
+  font-weight: 700;
+  color: #758d9a;
+}
